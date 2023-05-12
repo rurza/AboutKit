@@ -14,17 +14,17 @@ struct AboutView: View {
     var body: some View {
         VStack(spacing: 16) {
             VStack(spacing: 4) {
-                VStack {
-                    Image(nsImage: NSApp.applicationIconImage)
-                    Text(Bundle.main.productName ?? "")
-                        .foregroundColor(.primary)
-                        .font(.system(size: 22, weight: .heavy))
-                    HStack(spacing: 2) {
-                        Text(Bundle.main.releaseVersionNumber ?? "")
-                        Text("(\(Bundle.main.buildVersionNumber ?? ""))")
-                    }
-                    .foregroundColor(.secondary)
+                Image(nsImage: NSApp.applicationIconImage)
+                    .resizable()
+                    .frame(width: 100, height: 100)
+                Text(Bundle.main.productName ?? "")
+                    .foregroundColor(.primary)
+                    .font(.system(size: 22, weight: .heavy))
+                HStack(spacing: 2) {
+                    Text(Bundle.main.releaseVersionNumber ?? "")
+                    Text("(\(Bundle.main.buildVersionNumber ?? ""))")
                 }
+                .foregroundColor(.secondary)
             }
             VStack(spacing: 4) {
                 Text(description)
@@ -34,6 +34,7 @@ struct AboutView: View {
                     .frame(height: 18)
                     .offset(y: 1)
             }
+            .padding(.vertical)
             HStack(spacing: 24) {
                 Button {
                     openURL(URL(string: "https://micropixels.software")!)
