@@ -52,7 +52,7 @@ struct AboutView: View {
                 .buttonStyle(PrimaryActionButtonStyle(backgroundColor: .accentColor, fillParent: true))
             }
         }
-        .padding(.horizontal, 30)
+        .padding(.horizontal, 20)
         .padding(.bottom, 20)
     }
 }
