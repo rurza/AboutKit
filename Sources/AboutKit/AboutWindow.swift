@@ -19,7 +19,17 @@ public class AboutWindow: NSWindow {
         self.titlebarAppearsTransparent = true
         self.styleMask = [.closable, .miniaturizable, .titled]
         self.titleVisibility = .hidden
-        self.title = "Horzono…"
+        self.title = Bundle.main.productName ?? "About"
+    }
+
+    public override func makeKeyAndOrderFront(_ sender: Any?) {
+        NSApp.activate(ignoringOtherApps: true)
+        super.makeKeyAndOrderFront(sender)
+    }
+
+    public override func orderFront(_ sender: Any?) {
+        NSApp.activate(ignoringOtherApps: true)
+        super.orderFront(sender)
     }
 }
 
