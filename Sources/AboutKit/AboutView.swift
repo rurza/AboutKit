@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct AboutView: View {
-    @Environment(\.openURL) private var openURL
+struct AboutView<Content: View>: View {
     let description: String
+    @ViewBuilder let content: () -> Content
 
     var body: some View {
         VStack(spacing: 16) {
@@ -35,22 +35,7 @@ struct AboutView: View {
                     .offset(y: 1)
             }
             .padding(.vertical)
-            HStack(spacing: 24) {
-                Button {
-                    openURL(URL(string: "https://micropixels.software")!)
-                } label: {
-                    Text("Website")
-                }
-                .buttonStyle(PrimaryActionButtonStyle(backgroundColor: .accentColor, fillParent: true))
-                .frame(width: 120)
-                Button {
-                    openURL(URL(string: "https://twitter.com/rurza")!)
-                } label: {
-                    Text("Twitter")
-                }
-                .frame(width: 120)
-                .buttonStyle(PrimaryActionButtonStyle(backgroundColor: .accentColor, fillParent: true))
-            }
+            content()
         }
         .padding(.horizontal, 20)
         .padding(.bottom, 20)
@@ -59,6 +44,23 @@ struct AboutView: View {
 
 struct AboutView_Previews: PreviewProvider {
     static var previews: some View {
-        AboutView(description: "Hello Worlds")
+        AboutView(description: "Hello Worlds", content: {
+            HStack(spacing: 24) {
+                Button {
+                    
+                } label: {
+                    Text("Website")
+                }
+                .buttonStyle(PrimaryActionButtonStyle(backgroundColor: .accentColor, fillParent: true))
+                .frame(width: 120)
+                Button {
+                    
+                } label: {
+                    Text("Twitter")
+                }
+                .frame(width: 120)
+                .buttonStyle(PrimaryActionButtonStyle(backgroundColor: .accentColor, fillParent: true))
+            }
+        })
     }
 }

@@ -8,9 +8,9 @@
 import Cocoa
 import SwiftUI
 
-public class AboutWindow: NSWindow {
-    public convenience init(description: String) {
-        let vc = NSHostingController(rootView: AboutView(description: description))
+public class AboutWindow<Content: View>: NSWindow {
+    public convenience init(description: String, @ViewBuilder customContent: @escaping () -> Content) {
+        let vc = NSHostingController(rootView: AboutView(description: description, content: customContent))
         if #available(macOS 13.0, *) {
             vc.sizingOptions = [.preferredContentSize]
         }

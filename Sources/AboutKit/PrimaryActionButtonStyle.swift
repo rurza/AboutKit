@@ -7,13 +7,18 @@
 
 import SwiftUI
 
-struct PrimaryActionButtonStyle: ButtonStyle {
+public struct PrimaryActionButtonStyle: ButtonStyle {
     @Environment(\.colorScheme) private var colorScheme
     @Environment(\.isEnabled) private var isEnabled: Bool
-    let backgroundColor: Color
-    let fillParent: Bool
+    public let backgroundColor: Color
+    public let fillParent: Bool
+    
+    public init(backgroundColor: Color, fillParent: Bool) {
+        self.backgroundColor = backgroundColor
+        self.fillParent = fillParent
+    }
 
-    func makeBody(configuration: Configuration) -> some View {
+    public func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .frame(maxWidth: fillParent ? .infinity : nil)
             .font(.system(size: 14, weight: .semibold))
