@@ -42,25 +42,25 @@ struct AboutView<Content: View>: View {
     }
 }
 
-struct AboutView_Previews: PreviewProvider {
-    static var previews: some View {
-        AboutView(description: "Hello Worlds", content: {
-            HStack(spacing: 24) {
-                Button {
-                    
-                } label: {
-                    Text("Website")
-                }
-                .buttonStyle(PrimaryActionButtonStyle(backgroundColor: .accentColor, fillParent: true))
-                .frame(width: 120)
-                Button {
-                    
-                } label: {
-                    Text("Twitter")
-                }
-                .frame(width: 120)
-                .buttonStyle(PrimaryActionButtonStyle(backgroundColor: .accentColor, fillParent: true))
+#if DEBUG
+#Preview {
+    AboutView(description: "Hello World") {
+        HStack(spacing: 24) {
+            Button {
+
+            } label: {
+                Text("Website")
             }
-        })
+            .buttonStyle(.borderedProminent)
+            .frame(width: 120)
+            Button {
+
+            } label: {
+                Text("Twitter")
+            }
+            .frame(width: 120)
+            .buttonStyle(.borderedProminent)
+        }
     }
 }
+#endif
