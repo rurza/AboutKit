@@ -4,6 +4,7 @@
 //
 //  Created by Adam on 08/04/2023.
 //
+#if canImport(AppKit)
 
 import Foundation
 
@@ -19,3 +20,5 @@ extension Bundle {
         infoDictionary?["CFBundleExecutable"] as? String
     }
 }
+
+#endif

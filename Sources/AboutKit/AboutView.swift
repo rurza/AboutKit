@@ -4,6 +4,7 @@
 //
 //  Created by Adam on 12/05/2023.
 //
+#if canImport(AppKit)
 
 import SwiftUI
 
@@ -63,4 +64,6 @@ struct AboutView<Content: View>: View {
         }
     }
 }
+#endif
+
 #endif

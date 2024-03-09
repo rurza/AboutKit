@@ -1,9 +1,10 @@
 //
-//  File.swift
+//  AboutWindow.swift
 //  
 //
 //  Created by Adam on 12/05/2023.
 //
+#if canImport(AppKit)
 
 import Cocoa
 import SwiftUI
@@ -23,4 +24,4 @@ public class AboutWindow<Content: View>: NSWindow {
     }
 }
 
-
+#endif
